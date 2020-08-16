@@ -1,0 +1,35 @@
+{
+  "name": "app-suite-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramesh-bg/App-Suite-Backend.git"
+  },
+  "author": "Ramesh BG",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ramesh-bg/App-Suite-Backend/issues"
+  },
+  "homepage": "https://github.com/ramesh-bg/App-Suite-Backend#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "connect-mongo": "^3.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "http-status-codes": "^1.4.0",
+    "mongodb": "^3.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "standard": "^14.3.4"
+  }
+}
