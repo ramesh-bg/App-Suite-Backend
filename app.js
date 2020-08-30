@@ -11,13 +11,19 @@ const app = express();
 const auth = require('./middlewares/auth.middleware');
 const routes = require('./routes/route');
 
-
 let db;
+
+
+const corsConfig = cors({
+    origin: process.env.UI_HOST_URL,
+    optionsSuccessStatus: 200
+});
+app.use(corsConfig);
+
 const mongoOptions = {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }
-
 MongoClient.connect(process.env.DBHOST, mongoOptions, (error, client) => {
     if (error) throw error;
     db = client.db(client.s.options.dbName);
@@ -43,11 +49,11 @@ app.use(session({
         secure: process.env.NODE_ENV === 'local' ? false : true
     }
 }));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use(cors());
 app.use('/', routes);
 
 app.get('/', (req, res) => {
@@ -55,4 +61,3 @@ app.get('/', (req, res) => {
     <h2>Welcome</h2>
     `);
 });
-
